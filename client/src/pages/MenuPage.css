@@ -1,0 +1,164 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Ensure Full Page Layout */
+body, html {
+    width: 100%;
+   
+    color: white;
+    font-family: Arial, sans-serif;
+}
+
+/* Main Container */
+.menu-container {
+    width: 100%;
+    overflow-x: hidden;
+}
+
+/* Hero Section */
+.hero-section {
+    width: 100%;
+    height: 50vh;
+    background: url("/images/Menu.jpeg") center center/cover no-repeat;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 20px;
+}
+
+/* Menu Title */
+.menu-title {
+    font-size: 40px;
+    font-weight: bold;
+    text-transform: uppercase;
+    color:#00aaff;
+    margin-bottom: 10px;
+}
+
+/* Menu Description */
+.menu-description {
+    max-width: 600px;
+    font-size: 16px;
+    color: #ccc;
+}
+
+/* Category Tabs */
+.menu-categories {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    width: 100%;
+    max-width: 800px;
+    margin: auto;
+    padding-top: 20px;
+}
+
+.category-btn {
+    background: transparent;
+    border: 2px solid #00aaff;
+    color: white;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: 0.3s ease-in-out;
+}
+
+.category-btn.active,
+.category-btn:hover {
+    background: #00aaff;
+    color: black;
+}
+
+/* Middle Section */
+.middle-section {
+    text-align: center;
+    padding: 50px 20px;
+    background-color: #000;
+    color: white;
+    width: 100%;
+}
+
+/* Cocktails Section */
+.cocktails-section {
+    max-width: 800px;
+    margin-left: 21%;
+    margin-top: 27px;
+    background: rgba(255, 255, 255, 0.05);
+    padding: 30px;
+    border-radius: 10px;
+}
+
+/* Cocktails Title */
+.cocktails-title {
+    font-size: 28px;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+/* Each Cocktail Item */
+.cocktail-item {
+    text-align: left;
+    margin-bottom: 20px;
+    border-bottom: 1px solid #555;
+    padding-bottom: 10px;
+}
+
+/* Cocktail Name */
+.cocktail-name {
+    font-size: 20px;
+    font-weight: bold;
+    color: #00aaff;
+}
+
+/* Cocktail Price */
+.cocktail-price {
+    float: right;
+    font-size: 18px;
+    color: #00ffcc;
+}
+
+/* Cocktail Description */
+.cocktail-description {
+    font-size: 14px;
+    color: #ccc;
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+    .menu-title {
+        font-size: 32px;
+    }
+
+   
+    .cocktails-section {
+        width: 90%;  
+        margin: 0 auto; 
+        text-align: center; 
+        padding: 20px; 
+    }
+
+    .cocktail-item {
+        text-align: center; 
+        padding: 15px 0;
+    }
+
+    .cocktail-price {
+        float: none; 
+        display: block; 
+        margin-top: 5px;
+    }
+
+    .menu-categories {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .category-btn {
+        width: 80%;
+    }
+}
