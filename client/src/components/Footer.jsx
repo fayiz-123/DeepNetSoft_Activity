@@ -23,6 +23,7 @@ const Footer = () => {
           <p>First floor, Geo Infopark, Infopark EXPY, Kakkanad</p>
         </div>
       </div>
+
       <div className="footer-bottom">
         <p>&copy; 2024 Deepnetsoft Solutions. All rights reserved.</p>
         <div>
