@@ -38,7 +38,7 @@ function MenuPage() {
 
   const fetchMenuItems = async (menuId) => {
     try {
-      const response = await axios.get(`http://localhost:5000/menuItem/allMenuItems/${menuId}`);
+      const response = await axios.get(`https://deepnetsoft-activity-deployment.onrender.com/menuItem/allMenuItems/${menuId}`);
       if (response.data.success) {
         setMenuItems(response.data.allMenuItemsOfMenu.items); 
       } else {
@@ -63,7 +63,7 @@ function MenuPage() {
           <h1 className="menu-title">MENU</h1>
           <p className="menu-description">
             Please take a look at our menu featuring food, drinks, and brunch.
-            If you'd like to place an order, use the "Order Online" button below.This is my website
+            If you'd like to place an order, use the "Order Online" button below.
           </p>
         </div>
   
