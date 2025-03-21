@@ -13,7 +13,7 @@ function MenuPage() {
   useEffect(() => {
     const fetchCategories = async () => {
       try {
-        const response = await axios.get("http://localhost:5000/allMenus");
+        const response = await axios.get("https://deepnetsoft-activity-deployment.onrender.com/allMenus");
         if (response.data.success) {
           setCategories(response.data.allMenus);
 
@@ -63,7 +63,7 @@ function MenuPage() {
           <h1 className="menu-title">MENU</h1>
           <p className="menu-description">
             Please take a look at our menu featuring food, drinks, and brunch.
-            If you'd like to place an order, use the "Order Online" button below.
+            If you'd like to place an order, use the "Order Online" button below.This is my website
           </p>
         </div>
   
