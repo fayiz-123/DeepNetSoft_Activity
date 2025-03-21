@@ -24,7 +24,7 @@ function UpdateDeleteMenuPage() {
   useEffect(() => {
     const fetchMenu = async () => {
       try {
-        const response = await axios.get(`http://localhost:5000/menu/${menuId}`);
+        const response = await axios.get(`https://deepnetsoft-activity-deployment.onrender.com/menu/${menuId}`);
         if (response.data.success) {
           setMenu(response.data.findMenu);
         } else {
@@ -38,7 +38,7 @@ function UpdateDeleteMenuPage() {
 
     const fetchMenuItems = async () => {
       try {
-        const response = await axios.get(`http://localhost:5000/menuItem/menu-items/${menuId}`);
+        const response = await axios.get(`https://deepnetsoft-activity-deployment.onrender.com/menuItem/menu-items/${menuId}`);
         if (response.data.success) {
           setMenuItems(response.data.menuItemOfMenu.items);
         } else {
@@ -66,7 +66,7 @@ function UpdateDeleteMenuPage() {
     e.preventDefault();
     setLoading(true);
     try {
-      const response = await axios.put(`http://localhost:5000/updateMenu/${menuId}`, menu);
+      const response = await axios.put(`https://deepnetsoft-activity-deployment.onrender.com/updateMenu/${menuId}`, menu);
       if (response.data.success) {
         alert("Menu updated successfully!");
         navigate("/"); 
@@ -84,11 +84,11 @@ function UpdateDeleteMenuPage() {
   const handleDeleteMenuItem = async (itemId) => {
     if (window.confirm("Are you sure you want to delete this menu item?")) {
       try {
-        const response = await axios.delete(`http://localhost:5000/menuItem/deleteItem/${itemId}`);
+        const response = await axios.delete(`https://deepnetsoft-activity-deployment.onrender.com/menuItem/deleteItem/${itemId}`);
         if (response.data.success) {
           alert("Menu item deleted successfully!");
           
-          const updatedItemsResponse = await axios.get(`http://localhost:5000/menuItem/menu-items/${menuId}`);
+          const updatedItemsResponse = await axios.get(`https://deepnetsoft-activity-deployment.onrender.com/menuItem/menu-items/${menuId}`);
           if (updatedItemsResponse.data.success) {
             setMenuItems(updatedItemsResponse.data.menuItemOfMenu.items);
           } else {
@@ -107,7 +107,7 @@ function UpdateDeleteMenuPage() {
   const handleDeleteMenu = async () => {
     if (window.confirm("Are you sure you want to delete this menu? This action cannot be undone.")) {
       try {
-        const response = await axios.delete(`http://localhost:5000/deleteMenu/${menuId}`);
+        const response = await axios.delete(`https://deepnetsoft-activity-deployment.onrender.com/deleteMenu/${menuId}`);
         if (response.data.success) {
           alert("Menu deleted successfully!");
           navigate("/"); 
@@ -124,10 +124,10 @@ function UpdateDeleteMenuPage() {
   const handleAddMenuItem = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post(`http://localhost:5000/menuItem/addMenuItem/${menuId}`, newItem);
+      const response = await axios.post(`https://deepnetsoft-activity-deployment.onrender.com/menuItem/addMenuItem/${menuId}`, newItem);
       if (response.data.success) {
         alert("Menu item added successfully!");
-        const updatedItemsResponse = await axios.get(`http://localhost:5000/menuItem/menu-items/${menuId}`);
+        const updatedItemsResponse = await axios.get(`https://deepnetsoft-activity-deployment.onrender.com/menuItem/menu-items/${menuId}`);
         if (updatedItemsResponse.data.success) {
           setMenuItems(updatedItemsResponse.data.menuItemOfMenu.items);
         } else {
@@ -157,10 +157,10 @@ function UpdateDeleteMenuPage() {
     if (!editItem) return;
 
     try {
-      const response = await axios.put(`http://localhost:5000/menuItem/updateMenuItem/${editItem._id}`, editItem);
+      const response = await axios.put(`https://deepnetsoft-activity-deployment.onrender.com/menuItem/updateMenuItem/${editItem._id}`, editItem);
       if (response.data.success) {
         alert("Menu item updated successfully!");
-        const updatedItemsResponse = await axios.get(`http://localhost:5000/menuItem/menu-items/${menuId}`);
+        const updatedItemsResponse = await axios.get(`https://deepnetsoft-activity-deployment.onrender.com/menuItem/menu-items/${menuId}`);
         if (updatedItemsResponse.data.success) {
           setMenuItems(updatedItemsResponse.data.menuItemOfMenu.items);
         } else {
