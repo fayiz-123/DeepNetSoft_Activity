@@ -66,8 +66,7 @@ function MenuPage() {
             If you'd like to place an order, use the "Order Online" button below.
           </p>
         </div>
-
-       
+  
         <div className="menu-categories">
           {categories.map((menu) => (
             <button
