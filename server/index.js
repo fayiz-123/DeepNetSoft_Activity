@@ -3,7 +3,21 @@ const app = express()
 require('dotenv').config()
 const cors = require('cors')
 app.use(express.json())
-app.use(cors())
+const corsOptions = {
+    origin: function(origin,callback){
+      const allowedOrigins = ["http://localhost:5173"]
+      if( allowedOrigins.includes(origin)){
+        callback(null,true)
+      }
+      else{
+        callback(new Error('Not Allowed by Cors'))
+      }
+    },
+    methods:['GET','POST','PUT','DELETE'],
+    allowedHeaders:['Content-Type','Authorization']
+    
+  };
+  app.use(cors(corsOptions));
 const mongoose = require('mongoose')
 mongoose.connect(process.env.MONGO_URL)
 
