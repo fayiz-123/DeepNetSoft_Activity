@@ -4,9 +4,18 @@ require('dotenv').config()
 const cors = require('cors')
 app.use(express.json())
 const corsOptions = {
-    origin: "*", 
-    methods: "GET, POST, PUT, DELETE",
-    allowedHeaders: "Content-Type, Authorization",
+    origin: function(origin,callback){
+      const allowedOrigins = ["https://deepnetsoft-activity-frontend.onrender.com"]
+      if(!origin || allowedOrigins.includes(origin)){
+        callback(null,true)
+      }
+      else{
+        callback(new Error('Not Allowed by Cors'))
+      }
+    },
+    methods:['GET','POST','PUT'],
+    allowedHeaders:['Content-Type','Authorization']
+    
   };
   app.use(cors(corsOptions));
 const mongoose = require('mongoose')
