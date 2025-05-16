@@ -17,9 +17,16 @@ const corsOptions = {
     allowedHeaders:['Content-Type','Authorization']
     
   };
-  app.use(cors(corsOptions));
+ 
+app.use(cors(corsOptions));
 const mongoose = require('mongoose')
 mongoose.connect(process.env.MONGO_URL)
+
+
+app.get('/health', (req, res) => {
+  res.status(200).send('Server is healthy');
+});
+
 
 const menuRoutes = require('./routes/menuRoutes')
 const menuItemRoutes = require('./routes/menuItemRoutes')
