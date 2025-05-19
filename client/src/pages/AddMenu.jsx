@@ -6,11 +6,12 @@ function AddMenu() {
   const [name, setName] = useState("");
   const [description, setDescription] = useState("");
   const navigate = useNavigate();
+  const baseApiUrl = import.meta.env.VITE_BASE_API_URL;
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post("https://deepnetsoft-activity-deployment.onrender.com/addMenu", {
+      const response = await axios.post(`${baseApiUrl}/addMenu`, {
         name,
         description,
       });

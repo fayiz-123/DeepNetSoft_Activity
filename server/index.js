@@ -5,7 +5,11 @@ const cors = require('cors')
 app.use(express.json())
 const corsOptions = {
     origin: function(origin,callback){
-      const allowedOrigins = ["https://deepnetsoft-activity-frontend.onrender.com"]
+      const allowedOrigins = [
+    'https://deepnetsoft-activity-frontend.onrender.com',
+    'http://localhost:5173',    
+];
+
       if(!origin || allowedOrigins.includes(origin)){
         callback(null,true)
       }

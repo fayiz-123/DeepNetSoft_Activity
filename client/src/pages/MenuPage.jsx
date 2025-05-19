@@ -9,11 +9,13 @@ function MenuPage() {
   const [categories, setCategories] = useState([]);
   const [selectedCategory, setSelectedCategory] = useState(null); 
   const [menuItems, setMenuItems] = useState([]); 
+  const baseApiUrl = import.meta.env.VITE_BASE_API_URL;
+
   
   useEffect(() => {
     const fetchCategories = async () => {
       try {
-        const response = await axios.get("https://deepnetsoft-activity-deployment.onrender.com/allMenus");
+        const response = await axios.get(`${baseApiUrl}/allMenus`);
         if (response.data.success) {
           setCategories(response.data.allMenus);
 
@@ -38,7 +40,7 @@ function MenuPage() {
 
   const fetchMenuItems = async (menuId) => {
     try {
-      const response = await axios.get(`https://deepnetsoft-activity-deployment.onrender.com/menuItem/allMenuItems/${menuId}`);
+      const response = await axios.get(`${baseApiUrl}/menuItem/allMenuItems/${menuId}`);
       if (response.data.success) {
         setMenuItems(response.data.allMenuItemsOfMenu.items); 
       } else {
